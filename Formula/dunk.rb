@@ -2,7 +2,7 @@ class Dunk < Formula
   desc "Mason-inspired terminal UI for Homebrew"
   homepage "https://github.com/lesliesrussell/dunk"
   url "https://github.com/lesliesrussell/dunk/releases/download/v0.1.0/dunk-0.1.0.tar.gz"
-  sha256 "204e455b1162ec1ed7005ee4ca558b2ea2f0c67989d12ebb0183582897b33645"
+  sha256 "05201b5e73be5e57f1799d34f55113f1e5d59c7e6dd7a41ecbe66677accddeea"
   license "MIT"
 
   depends_on "rust" => :build
