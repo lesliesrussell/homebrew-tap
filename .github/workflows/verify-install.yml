@@ -1,0 +1,28 @@
+name: Verify public bottle installation
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  install:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-15, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    env:
+      HOMEBREW_NO_AUTO_UPDATE: 1
+    steps:
+      - name: Set up Homebrew and tap
+        uses: Homebrew/actions/setup-homebrew@4790763c0a3ba4036f72634dc079c4a7dfcd4878 # 2026.10.19.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install public bottle
+        run: brew install --force-bottle lesliesrussell/tap/dunk
+      - name: Test installed package
+        run: brew test lesliesrussell/tap/dunk
+      - name: Verify executable is linked
+        run: dunk --help
