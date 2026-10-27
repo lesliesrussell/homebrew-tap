@@ -5,6 +5,12 @@ class Dunk < Formula
   sha256 "c30e6196db3d13bdfd51047a159bb529b37057b62672498a31892e347e39bf01"
   license "MIT"
 
+  bottle do
+    root_url "https://github.com/lesliesrussell/homebrew-tap/releases/download/dunk-0.1.1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "065a44e8bafbca3156a340d47a34beaf663f607cffba7c9ebe3601bc13506096"
+    sha256 cellar: :any,                 x86_64_linux:  "dc27877e9b52599642c1c8bb9d816c337e77ee6307d5a3d822ae651c3ea032f3"
+  end
+
   depends_on "rust" => :build
 
   def install
